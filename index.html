@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script>
+//Contexto : this - El objeto que contiene a la fn()
+
+let bar = ()=> {}
+
+function foo(a,b){
+	console.log(a,b)
+}
+
+foo(1,2)
+//apply - call - bind - new 
+foo.apply({x:1},[1,2])
+foo.call({y:2},1,2)
+new foo 
+let a = foo.bind(null,1)
+
+function evento(a,b,e){
+	console.log(a,b,e)
+}
+
+
+document.addEventListener("click",(e)=>{
+	evento(1,2)
+})
+
+document.addEventListener(
+	"click",
+	evento.bind(null,1,2)
+)
+
+
+
+
+
+</script>
+</body>
+</html>
